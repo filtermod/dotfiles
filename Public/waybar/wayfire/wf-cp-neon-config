@@ -1,0 +1,45 @@
+// -*- mode: json -*-
+
+{
+	"layer": "top",
+	"position": "top",
+	"width": 1900,
+
+	"include": ["$HOME/.config/waybar/wayfire/wf-cp-neon-modules.json"],
+
+	"modules-left": [
+
+		"custom/right-arrow-workspaces",
+		"custom/google",
+		"custom/twitter",
+		"custom/github",
+		"custom/reddit",
+		"custom/youtube",
+		"custom/right-arrow-shortcuts",
+		"custom/media",
+		"custom/right-arrow-mpd",
+	    "wlr/workspaces",
+		"wlr/taskbar"
+	],
+	"modules-center": [
+		"custom/left-arrow-clock",
+		"clock",
+		"custom/right-arrow-clock"
+	],
+	"modules-right": [
+		"custom/left-arrow-pulse",
+		"custom/mpd-vol",
+		"pulseaudio",
+		"custom/left-arrow-modules",
+		"memory",
+		"cpu",
+		"temperature",
+		"disk",
+		"custom/pacman",
+		"network",
+		"battery",
+		"custom/left-arrow-tray",
+		"tray",
+		"custom/exit"
+	],
+}
