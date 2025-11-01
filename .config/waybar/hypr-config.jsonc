@@ -1,0 +1,69 @@
+{
+
+// Layout
+
+    "layer": "botom",
+    "position": "top",
+    "spacing": 5,
+    "margin": 5,
+    "fixed-center": true,
+
+// Include
+
+    "include": ["$HOME/.config/waybar/hypr-modules.json"],
+
+// Modules
+
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/window",
+        "wlr/taskbar",
+		"hyprland/submap"
+		
+    ],
+
+    "modules-center": [
+        "group/disks",
+        "custom/music",
+        "group/hardware"
+    ],
+
+    "modules-right": [
+       "pulseaudio",
+        "power-profiles-daemon",
+        "idle_inhibitor",
+        "custom/gamma",
+        "network",
+        "tray",
+        "clock",
+        "custom/power"
+    ],
+
+// Groups
+
+    "group/disks": {
+        "orientation": "inherit",
+        "modules": [
+            "disk#disk2",
+            "disk",
+            "custom/pacman"
+        ]
+    },
+
+    "group/hardware": {
+        "orientation": "inherit",
+        "modules": [
+            "cpu",
+            "memory",
+            "temperature"
+            
+        ]
+    },
+}
+
+//        "drawer": {
+//			"transition-duration": 500,
+//			"children-class": "not-power",
+//			"transition-left-to-right": true,
+//		},

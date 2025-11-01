@@ -1,0 +1,260 @@
+{
+
+// Layout
+
+    "layer": "botom",
+    "position": "top",
+    "spacing": 5,
+    "margin": 5,
+    "fixed-center": true,
+
+// Modules
+
+    "modules-left": [
+        "custom/launcher",
+        "wlr/taskbar",
+    ],
+
+    "modules-center": [
+        "group/disks",
+        "ext/workspaces",
+        "group/hardware"
+    ],
+
+    "modules-right": [
+        "group/mediag",
+    //  "idle_inhibitor",
+        "network",
+        "tray",
+        "custom/wlsunset",
+        "clock",
+        "custom/power"
+    ],
+
+// Groups
+
+    "group/keyboard": {
+        "orientation": "horizontal",
+        "modules": [
+            "wlr/language",
+            "keyboard-state"
+        ]
+    },
+
+    "group/disks": {
+        "orientation": "inherit",
+        "modules": [
+            "disk#disk2",
+            "disk",
+            "custom/pacman"
+        ]
+    },
+
+    "group/hardware": {
+        "orientation": "inherit",
+        "modules": [
+            "cpu",
+            "memory",
+            "temperature"
+        ]
+    },
+
+    "group/mediag": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/media",
+            "pulseaudio"
+        ],
+    },
+
+
+  // Waybar Modules configuration      ❴❵  󰕼     󰓃 󰓄          󱛞 󱛟 󰙪 󰙽 󰌹 󰌺 󰈀 󰊤   󰌷 󰌸 󰯉 ☭ ☮ ☯   
+
+  "ext/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+        "Workspace 1": "󰯉",
+        "Workspace 2": "󰯉",
+        "Workspace 3": "󰯉",
+        "Workspace 4": "󰯉",
+        "Workspace 5": "󰯉",
+        "Workspace 6": "󰯉",
+        },
+    "sort-by-id": true,
+    "active-only": false
+    },
+
+
+  "wlr/window": {
+    "min-length": 50,
+    "max-length": 50,
+    "padding-left": 5,
+    "padding-right": 5
+  },
+
+  "wlr/submap": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "<span color=\"#44FF44\"></span>",
+      "deactivated": ""
+    }
+  },
+
+  "tray": {
+    "spacing": 5
+  },
+
+  "clock": {
+    "timezone": "Europe/Lisbon",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+
+  "cava": {
+    "cava_config": "/home/anglo/.config/cava/config",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "actions": {
+      "on-click-right": "mode"
+    }
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": true,
+    "on-click": "cpupower-gui"
+  },
+
+  "memory": {
+    "format": " {}%",
+    "tooltip": true,
+    "on-click": "kitty -e btop"
+  },
+
+  "temperature": {
+    "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    "format-critical": "{icon} {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""],
+    "on-click": "kitty -e btop"
+  },
+
+  "network": {
+    "format-wifi": "<span></span>",
+    "format-ethernet": "<span>󰈀</span>",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-linked": "<span>󰌷</span>",
+    "format-disconnected": "<span>󰌸</span>",
+    "on-click": "kitty -e nmcurse",
+    "on-click-middle": "nm-applet"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-bluetooth-muted": " {icon}",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "<span size=\"large\"></span>",
+        "<span size=\"large\"></span>",
+        "<span size=\"large\"></span>"
+      ]
+    },
+    "min-length": 8,
+    "max-length": 8,
+    "on-click": "kitty -e ncpamixer",
+    "on-click-middle": "pipewire-config",
+    "on-click-right": "qpwgraph"
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": " {percentage_used}%",
+    "path": "/",
+    "on-click-right": "kitty -e ranger /",
+    "on-click-middle": "kitty -e diskonaut /",
+    "on-click": "thunar /"
+  },
+
+  "disk#disk2": {
+    "interval": 30,
+    "format": " {percentage_used}%",
+    "path": "/home/anglo",
+    "on-click-right": "kitty -e ranger /home/anglo",
+    "on-click-middle": "kitty -e diskonaut /home/anglo",
+    "on-click": "thunar /home/anglo"
+  },
+
+  "wlr/taskbar": {
+    "all-outputs": false,
+    "format": "{icon}",
+    "tooltip-format": "{title}",
+    "active-first": false,
+    "on-click": "minimize-raise",
+    "on-click-middle": "close",
+    "on-click-right": "fullscreen"
+   },
+
+  "custom/media": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+    "escape": false,
+    "max-length": 60,
+    "on-click": "playerctl play-pause",
+    "on-click-middle": "kitty -e rmpc",
+    "on-click-right": "playerctl stop",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+
+  "custom/launcher": {
+    "format": "{icon}",
+    "format-icons": " ",
+    "on-click-middle": "kitty -e sway-launcher-desktop",
+    "on-click-right": "wofi --conf=/home/anglo/.config/wofi/rconfig",
+    "on-click": "wofi --conf=/home/anglo/.config/wofi/dconfig",
+    "tooltip": false
+  },
+
+  "custom/power": {
+    "format": "{icon}",
+    "format-icons": " ",
+    "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "shutdown now",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        },
+	"tooltip": false
+  },
+
+  "custom/wlsunset": {
+    "format": "",
+    "on-click": "wlsunset -t 5700install",
+    "on-click-right": "killall wlsunset",
+    "tooltip": false
+  },
+
+  "custom/pacman": {
+    "format": "  {}",
+    "interval": 3600,
+    "exec": "checkupdates | wc -l",
+    "exec-if": "exit 0",
+    "on-click": "kitty -e sudo pacman -Syu"
+  }
+}

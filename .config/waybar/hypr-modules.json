@@ -1,0 +1,217 @@
+{
+  // Waybar Modules configuration 
+  // Icons       ❴❵  󰕼     󰓃 󰓄          󱛞 󱛟 󰙪 󰙽 󰌹 󰌺 󰈀 󰊤   󰌷 󰌸 󰯉 ☭ ☮ ☯                      
+	"clock": {
+		"format-alt": "{:%Y-%m-%d}",
+		"timezone": "Europe/Lisbon",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+
+	"cpu": {
+		"format": "  {usage}%",
+		"min-length": 3,
+		"on-click": "",
+		"on-click-middle": "",
+		"on-click-right": "",
+		"tooltip": true
+	},
+
+	"disk": {
+		"format": " {percentage_used}%",
+		"interval": 30,
+		"min-length": 3,
+		"path": "/",
+		"on-click": "kitty -e ranger /",
+		"on-click-middle": "thunar /",
+		"on-click-right": "kitty -e diskonaut /"
+		
+	},
+
+	"disk#disk2": {
+		"format": " {percentage_used}%",
+		"interval": 30,
+		"min-length": 3,
+		"path": "/home/anglo",
+		"on-click": "kitty -e ranger /home/anglo",
+		"on-click-right": "kitty -e diskonaut /home/anglo",
+		"on-click-middle": "thunar /home/anglo"
+	},
+	
+	"hyprland/window": {
+		"format": "{title}",
+		"icon": false
+	},
+	
+	"hyprland/workspaces": {
+		"active-only": true,
+		"format": "{icon}",
+		"format-icons": {
+			"Workspace 1": "<span font=\"bold\">1</span>",
+			"Workspace 2": "<span font=\"bold\">2</span>",
+			"Workspace 3": "<span font=\"bold\">3</span>",
+			"Workspace 4": "<span font=\"bold\">4</span>",
+			"Workspace 5": "<span font=\"bold\">5</span>",
+			"Workspace 6": "<span font=\"bold\">6</span>",
+			"Workspace 7": "<span font=\"bold\">7</span>",
+			"Workspace 8": "<span font=\"bold\">8</span>",
+			"Workspace 9": "<span font=\"bold\">9</span>",
+			"Workspace 10": "<span font=\"bold\">0</span>",
+		},
+		"on-click": "activate",
+		"sort-by-id": true
+	},
+	
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		},
+		"min-length": 3
+	},
+  
+	"memory": {
+		"format": "  {}%",
+		"min-length": 3,
+		"on-click": "kitty -e btop",
+		"tooltip": true
+	},
+  
+	"network": {
+		"format-wifi": "<span>  </span>",
+		"format-ethernet": "<span>󰈀</span>",
+		"tooltip-format": "{ifname} via {gwaddr}",
+		"format-linked": "<span>󰌷</span>",
+		"format-disconnected": "<span>󰌸</span>",
+		"min-length": 3,
+		"on-click": "kitty -e nmtui",
+		"on-click-middle": "nm-connection-editor"
+	},
+
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": "",
+			"power-saver": ""
+		},
+		"min-length": 3,
+		"tooltip": true,
+		"tooltip-format": "Power profile: {profile}"
+	},
+  
+	"pulseaudio": {
+		"format": "{icon}",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-bluetooth-muted": " {icon}",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default-muted": "",
+			"default": ""
+		},
+		"min-length": 4,
+		"on-click": "kitty -e wiremix",
+		"on-click-middle": "pavucontrol",
+		"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"tooltip": true,
+		"tooltip-format": "Volume: {volume}"
+	},
+
+	"temperature": {
+		"critical-threshold": 80,
+		"format": "{icon} {temperatureC}°C",
+		"format-critical": "{icon} {temperatureC}°C",
+		"format-icons": ["", "", ""],
+		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+		"min-length": 3,
+		"on-click": "kitty -e btop",
+		"thermal-zone": 2,
+		"tooltip-format": "{temperatureK}K",
+		"tooltip": true
+	},
+   
+	"tray": {
+		"spacing": 15
+	},
+  
+	"wlr/taskbar": {
+		"active-first": true,
+		"all-outputs": false,
+		"format": "{icon}",
+		"ignore-list": ["", ""],
+		"on-click": "minimize-raise",
+		"on-click-middle": "close",
+		"on-click-right": "maximize",
+		"tooltip-format": "{title}"
+	},
+
+	"custom/launcher": {
+		"format": "",
+		"min-length": 3,
+		"on-click": "wofi --conf=/home/anglo/.config/wofi/dconfig",
+		"on-click-middle": "",
+		"on-click-right": "wofi --conf=/home/anglo/.config/wofi/rconfig",
+		"tooltip": false
+	},
+
+	"custom/power": {
+    	"format": "",
+		"menu": "on-click",
+		"menu-file": "~/.config/waybar/power_menu.xml",
+		"menu-actions": {
+			"shutdown": "shutdown now",
+			"reboot": "reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate",
+		},
+		"min-length": 3,
+		"tooltip": false
+    },
+
+	"custom/music": {
+		"escape": true,
+		"exec": "~/.config/waybar/caway",
+		"return-type": "json",
+		"format": "{icon}{text}",
+		"format-icons": {
+			// "Playing": " ", // Uncomment if not using caway
+			"Paused": " ",
+			"Stopped": "&#x202d;ﭥ " // This stop symbol is RTL. So &#x202d; is left-to-right override.
+		},
+		"min-length": 60,
+		"max-length": 60,
+		"on-click": "playerctl play-pause",
+		"on-click-middle": "xfmpc",
+		"on-click-right": "kitty -e rmpc",
+		"on-scroll-up": "playerctl previous",
+		"on-scroll-down": "playerctl next",
+		"padding-left": 10,
+		"padding-right": 10,
+		"tooltip": true
+	},
+    
+	"custom/pacman": {
+		"exec": "checkupdates | wc -l",
+		"exec-if": "exit 0",
+		"format": "  {}",
+		"interval": 3600,
+		"min-length": 3,
+		"on-click": "kitty -e sudo pacman -Syu",
+		"tooltip": false
+	},
+  
+	"custom/gamma": {
+		"format": "",
+		"interval": 30,
+		"on-click": "gammastep -t 5700",
+		"on-click-right": "killall gammastep",
+		"tooltip": true,
+		"tooltip-format": "LMB On\nRMB Off{text}"
+	},
+}
