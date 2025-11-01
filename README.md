@@ -1,2 +1,2 @@
-# labwc + hyprland Desktop
-My desktop dotfiles
+# labwc + hyprland desktop dotfiles
+My desktop labwc + hyprland dotfiles
