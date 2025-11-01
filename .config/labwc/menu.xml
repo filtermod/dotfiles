@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu>
+
+	<menu id="client-menu">
+				
+		<item label="Pin">
+			<action name="ToggleAlwaysOnTop" />
+		</item>
+		
+		<separator />
+		
+		<menu id="workspaces" label="Desktop">
+			
+			<item label="All">
+				<action name="ToggleOmnipresent" />
+			</item>
+			
+			<separator />
+			
+			<item label="1">
+				<action name="SendToDesktop" to="1" />
+			</item>
+			
+			<item label="2">
+				<action name="SendToDesktop" to="2" />
+			</item>
+			
+			<item label="3">
+				<action name="SendToDesktop" to="3" />
+			</item>
+			
+			<item label="4">
+				<action name="SendToDesktop" to="4" />
+			</item>
+			
+			<item label="5">
+				<action name="SendToDesktop" to="5" />
+			</item>
+			
+			<item label="6">
+				<action name="SendToDesktop" to="6" />
+			</item>
+			
+			<item label="7">
+				<action name="SendToDesktop" to="7" />
+			</item>
+			
+			<item label="8">
+				<action name="SendToDesktop" to="8" />
+			</item>
+			
+			<item label="9">
+				<action name="SendToDesktop" to="9" />
+			</item>
+			
+			<item label="0">
+				<action name="SendToDesktop" to="0" />
+			</item>
+		</menu>
+		
+		<menu id="regions" label="Snap">
+			
+			<item label="Center">
+				 <action name="SnapToRegion" region="center" />
+			</item>
+			
+			<separator />
+			
+			<item label="Top Left">
+				 <action name="SnapToRegion" region="top-left" />
+			</item>
+			
+			<item label="Top Right">
+				 <action name="SnapToRegion" region="top-right" />
+			</item>
+			
+			<item label="Bottom Left">
+				 <action name="SnapToRegion" region="bottom-left" />
+			</item>
+			
+			<item label="Bottom Right">
+				 <action name="SnapToRegion" region="bottom-right" />
+			</item>
+		
+		</menu>
+		
+		<separator />
+		
+		<item label="Decoration">
+			<action name="ToggleDecorations" />
+		</item>
+		
+		<item label="Roll">
+			<action name="ToggleShade" />
+		</item>					
+		
+		<separator />
+		
+		<item label="Minimize">
+			<action name="Iconify" />
+		</item>
+		
+		<item label="Maximize">
+			<action name="ToggleMaximize" />
+		</item>
+		
+		<item label="Fullscreen">
+			<action name="ToggleFullscreen" />
+		</item>
+		
+		<separator />
+		
+		<item label="Close">
+			<action name="Close" />
+		</item>
+	</menu>
+
+	<menu id="root-menu">
+		
+		<menu id="labwc" label="				labwc">
+			
+			<item label="Reconfigure">
+				<action name="Reconfigure" />
+				<action name="Execute" command="killall -SIGUSR2 waybar" />
+			</item>
+			
+			<separator />
+			
+			<item label="autostart">
+				<action name="Execute" command="geany /home/anglo/.config/labwc/autostart" />
+			</item>
+			
+			<item label="environment">
+				<action name="Execute" command="geany /home/anglo/.config/labwc/environment" />
+			</item>
+			
+			<item label="menu.xml">
+				<action name="Execute" command="geany /home/anglo/.config/labwc/menu.xml" />
+			</item>
+			
+			<item label="rc.xml">
+				<action name="Execute" command="geany /home/anglo/.config/labwc/rc.xml" />
+			</item>
+						
+			<separator />
+			
+			<item label="Wallpaper">
+				<action name="Execute" command="sh -c 'swaybg -i $(find /usr/share/backgrounds/. -type f | shuf -n1) -m fill'" />
+			</item>
+		
+		</menu>
+		
+		<separator />
+					
+		<item label="Terminal">
+			<action name="Execute" command="kitty" />
+		</item>
+		
+		<item label="Web browser">
+			<action name="Execute" command="firefox" />
+		</item>
+		
+		 <item label="Text Editor">
+			<action name="Execute" command="geany" />
+		</item>
+		
+		<item label="File Manager">
+			<action name="Execute" command="thunar" />
+		</item>
+		
+		<separator />
+		
+		<menu id="audio" label="Audio">
+			
+			<item label="Renoise">
+				<action name="Execute" command="renoise" />
+			</item>
+			
+			<item label="Reaper">
+				<action name="Execute" command="reaper" />
+			</item>
+			
+			<item label="Ardour">
+				<action name="Execute" command="Ardour" />
+			</item>
+			
+			<item label="Cardinal">
+				<action name="Execute" command="Cardinal" />
+			</item>
+			
+			<item label="Furnace">
+				<action name="Execute" command="furnace" />
+			</item>			
+			
+			<item label="Guitarix">
+				<action name="Execute" command="guitarix" />
+			</item>				
+			
+			<item label="Lmms">
+				<action name="Execute" command="lmms" />
+			</item>
+			
+			<item label="Mixxx">
+				<action name="Execute" command="mixxx" />
+			</item>
+						
+			<item label="Pure Data">
+				<action name="Execute" command="pd" />
+			</item>
+			
+			<item label="Sonic Visualiser">
+				<action name="Execute" command="sonic-visualiser" />
+			</item>
+			
+			<item label="Timidity">
+				<action name="Execute" command="timidity" />
+			</item>
+					
+		</menu>	  
+		
+		<menu id="graphics" label="Graphics">
+			
+			<item label="Darktable">
+				<action name="Execute" command="darktable" />
+			</item>
+			
+			<item label="Gimp">
+				<action name="Execute" command="gimp" />
+			</item>
+			
+			<item label="Inkscape">
+				<action name="Execute" command="inkscape" />
+			</item>
+				
+		</menu>	  
+		
+		<menu id="video" label="Video">
+			
+			<item label="Blender">
+				<action name="Execute" command="blender" />
+			</item>
+			
+			<item label="Flowblade">
+				<action name="Execute" command="sh -c 'GDK_BACKEND=x11 flowblade'" />
+			</item>
+		
+			<item label="OBS Studio">
+				<action name="Execute" command="obs" />
+			</item>
+		
+		</menu>	  
+		
+		<separator />
+		
+		<menu id="applications" label="Applications" execute="xdg_menu --format openbox3-pipe --root-menu /etc/xdg/menus/arch-applications.menu"/>
+		
+		<separator />
+		
+		<menu id="exit" label="Exit...">
+			<item label="Logout">
+				<action name="exit" />
+			</item>
+			<item label="Reboot">
+				<action name="Execute" command="systemctl -i reboot" />
+			</item>
+			<item label="Power Off">
+				<action name="Execute" command="systemctl -i poweroff" />
+			</item>
+		</menu>
+	
+	</menu>
+</openbox_menu>

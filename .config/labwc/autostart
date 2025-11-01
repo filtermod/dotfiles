@@ -1,0 +1,42 @@
+# Labwc Autostart file
+
+# Polkit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 2>&1 &
+
+# Wallpaper/ background color
+settimed archlinux >/dev/null 2>&1 &
+#swaybg -c 222222 -i /home/anglo/Pictures/Wallpapers/JWST-Hero.jpg >/dev/null 2>&1 &
+#swaybg -c 222222 -i $(find /usr/share/backgrounds/. -type f | shuf -n1) -m fill >/dev/null 2>&1 &
+
+# Output
+kanshi >/dev/null 2>&1 &
+
+# Clipboard History
+wl-paste --watch cliphist store  >/dev/null 2>&1 &
+
+# Notifications
+mako >/dev/null 2>&1 &
+
+# Screen lock 
+swayidle -w \
+    timeout 300 'swaylock' \
+    timeout 600 'wlr-randr --output Virtual-1 --off' \
+    resume 'wlr-randr --output Virtual-1 --on' >/dev/null 2>&1 &
+
+# Panel
+waybar --log-level off -c /home/anglo/.config/waybar/labwc-config.jsonc -s /home/anglo/.config/waybar/labwc-style.css >/dev/null 2>&1 &
+
+# Gamma
+gammastep -O 3500 -b 0.8 
+    
+# MPD
+mpd  
+systemctl --user --now enable mpd-mpris 
+
+# Pipewire Graph
+qpwgraph -m
+
+# GTK
+gsettings set org.gnome.desktop.interface gtk-theme 'Yeti'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+gsettings set org.gnome.desktop.interface font-name 'Terminess Nerd Font 12'

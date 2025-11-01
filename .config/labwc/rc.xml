@@ -1,0 +1,464 @@
+<?xml version="1.0"?>
+
+<labwc_config>
+    
+	<!-- Core -->
+	<core>
+		<decoration>server</decoration>
+		<gap>6</gap>
+	</core>
+  
+	<!-- Placement -->
+	<placement>
+		<policy>automatic</policy>
+	</placement>
+  
+	<!-- Theme -->
+	<theme>
+		<name>Yeti</name>
+		<cornerRadius>8</cornerRadius>
+		<keepBorder>yes</keepBorder>
+		<maximizedDecoration>titlebar</maximizedDecoration>
+		<dropShadows>yes</dropShadows>
+		<font name="Terminess Nerd Font" size="12"/>
+	</theme>
+   
+	<!-- Window Switcher -->
+	<windowSwitcher show="no" style="classic" preview="yes" outlines="yes" allWorkspaces="no"></windowSwitcher>
+	
+	<!-- Resistance -->  
+	<resistance>
+		<screenEdgeStrength>20</screenEdgeStrength>
+		<windowEdgeStrength>20</windowEdgeStrength>
+		<unSnapThreshold>20</unSnapThreshold>
+		<unMaximizeThreshold>150</unMaximizeThreshold>
+	</resistance>
+  
+	<!-- Resize -->  
+	<resize>
+		<popupShow>Always</popupShow>
+		<drawContents>yes</drawContents>
+		<minimumArea>8</minimumArea>
+		<cornerRange>8</cornerRange>
+	</resize>
+  
+	<!-- Focus -->  
+	<focus>
+		<followMouse>no</followMouse>
+		<followMouseRequiresMovement>yes</followMouseRequiresMovement>
+		<raiseOnFocus>no</raiseOnFocus>
+	</focus>
+  
+	<!-- Snapping -->  
+	<snapping>
+		<range>10</range>
+		<cornerRange>32</cornerRange>
+		<overlay enabled="yes">
+			<delay inner="125" outer="125"/>
+		</overlay>
+		<topMaximize>yes</topMaximize>
+		<notifyClient>always</notifyClient>
+	</snapping>
+  
+	<!-- Regions -->  
+	<regions>
+		<region name="top-left" x="0%" y="0%" height="50%" width="50%"/>
+		<region name="top" x="0%" y="0%" height="50%" width="100%"/>
+		<region name="top-right" x="50%" y="0%" height="50%" width="50%"/>
+		<region name="left" x="0%" y="0%" height="100%" width="50%"/>
+		<region name="center" x="10%" y="10%" height="80%" width="80%"/>
+		<region name="right" x="50%" y="0%" height="100%" width="50%"/>
+		<region name="bottom-left" x="0%" y="50%" height="50%" width="50%"/>
+		<region name="bottom" x="0%" y="50%" height="50%" width="100%"/>
+		<region name="bottom-right" x="50%" y="50%" height="50%" width="50%"/>
+	</regions>
+  
+	<!-- Desktops -->  
+	<desktops>
+		<popupTime>500</popupTime>
+		<!-- <number>10</number> -->
+		<names>
+			<name>1</name>
+			<name>2</name>
+			<name>3</name>
+			<name>4</name>
+			<name>5</name>
+			<name>6</name>
+			<name>7</name>
+			<name>8</name>
+			<name>9</name>
+			<name>0</name>
+		</names>
+	</desktops>
+	  
+	<!-- Keyboard Bindings -->  
+	<keyboard>		
+		
+		<default/>
+		<!-- Bar -->	
+		<keybind key="W-b">
+			<action name="Execute" command="killall -SIGUSR1 waybar"/>
+		</keybind>
+		
+		<keybind key="W-C-b">
+			<action name="Execute" command="killall -SIGUSR2 waybar"/>
+		</keybind>
+		
+		<!-- Decorations -->
+		<keybind key="W--">
+			<action name="ToggleDecorations"/>
+		</keybind>
+		
+		<!-- Logout -->
+		<keybind key="W-l" name.action="exit"/>
+		
+		<!-- Lock -->
+		<keybind key="W-S-l" name.action="Execute" command.action="swaylock"/>
+		
+		<!-- Disable Keybinds (VM,VNC)-->
+		<keybind key="W-k">
+			<action name="ToggleKeybinds"/>
+		</keybind>
+		
+		<!-- Remove keybinds -->
+		<keybind key="W-F4">
+			<action name="None"/>
+		</keybind>
+		
+		<!-- Apps -->
+		<keybind key="W-a">
+			<action name="Execute" command="wofi --conf=/home/anglo/.config/wofi/dconfig"/>
+		</keybind>
+		
+		<keybind key="W-r">
+			<action name="Execute" command="wofi --conf=/home/anglo/.config/wofi/rconfig"/>
+		</keybind>
+		
+		<keybind key="W-C-r">
+			<action name="Reconfigure"/>
+			<action name="Execute" command="killall -SIGUSR2 waybar"/>
+		</keybind>
+		
+		<keybind key="W-t">
+			<action name="Execute" command="kitty"/>
+		</keybind>
+		
+		<keybind key="W-w">
+			<action name="Execute" command="firefox"/>
+		</keybind>
+		
+		<keybind key="W-e">
+			<action name="Execute" command="geany"/>
+		</keybind>
+		
+		<keybind key="W-f">
+			<action name="Execute" command="thunar"/>
+		</keybind>
+		
+		<keybind key="W-v">
+			<action name="Execute" command="virt-manager"/>
+		</keybind>
+		
+		<keybind key="W-c">
+			<action name="Execute" command="sh -c 'cliphist list | wofi -S dmenu | cliphist decode | wl-copy'"/>
+		</keybind>
+		
+		<!-- Window -->
+		<keybind key="W-q">
+			<action name="Close"/>
+		</keybind>
+		
+		<keybind key="W-Up">
+			<action name="ToggleMaximize"/>
+		</keybind> 
+		
+		<keybind key="C-Up">
+			<action name="ToggleFullscreen"/>
+		</keybind>
+		
+		<keybind key="C-Down">
+			<action name="Iconify"/>
+		</keybind>
+				
+		<!-- Go To Desktop -->
+		<keybind key="W-C-Left">
+			<action name="GoToDesktop" to="left"/>
+		</keybind>
+		
+		<keybind key="W-C-Right">
+			<action name="GoToDesktop" to="right"/>
+		</keybind>
+		
+		<keybind key="W-1">
+			<action name="GoToDesktop" to="1"/>
+		</keybind>
+		
+		<keybind key="W-2">
+			<action name="GoToDesktop" to="2"/>
+		</keybind>
+		
+		<keybind key="W-3">
+			<action name="GoToDesktop" to="3"/>
+		</keybind>
+		
+		<keybind key="W-4">
+			<action name="GoToDesktop" to="4"/>
+		</keybind>
+		
+		<keybind key="W-5">
+			<action name="GoToDesktop" to="5"/>
+		</keybind>
+		
+		<keybind key="W-6">
+			<action name="GoToDesktop" to="6"/>
+		</keybind>
+		
+		<keybind key="W-7">
+			<action name="GoToDesktop" to="7"/>
+		</keybind>
+		
+		<keybind key="W-8">
+			<action name="GoToDesktop" to="8"/>
+		</keybind>
+		
+		<keybind key="W-9">
+			<action name="GoToDesktop" to="9"/>
+		</keybind>
+		
+		<keybind key="W-0">
+			<action name="GoToDesktop" to="10"/>
+		</keybind>
+		
+		<!-- Send To Desktop -->
+		<keybind key="W-S-Left">
+			<action name="SendToDesktop" to="left"/>
+		</keybind>
+		
+		<keybind key="W-S-Right">
+			<action name="SendToDesktop" to="right"/>
+		</keybind>
+		
+		<keybind key="W-S-1">
+			<action name="SendToDesktop" to="1"/>
+		</keybind>
+		
+		<keybind key="W-S-2">
+			<action name="SendToDesktop" to="2"/>
+		</keybind>
+		
+		<keybind key="W-S-3">
+			<action name="SendToDesktop" to="3"/>
+		</keybind>
+		
+		<keybind key="W-S-4">
+			<action name="SendToDesktop" to="4"/>
+		</keybind>
+		
+		<keybind key="W-S-5">
+			<action name="SendToDesktop" to="5"/>
+		</keybind>
+		
+		<keybind key="W-S-6">
+			<action name="SendToDesktop" to="6"/>
+		</keybind>
+		
+		<keybind key="W-S-7">
+			<action name="SendToDesktop" to="7"/>
+		</keybind>
+		
+		<keybind key="W-S-8">
+			<action name="SendToDesktop" to="8"/>
+		</keybind>
+		
+		<keybind key="W-S-9">
+			<action name="SendToDesktop" to="9"/>
+		</keybind>
+		
+		<keybind key="W-S-0">
+			<action name="SendToDesktop" to="10"/>
+		</keybind>
+		
+		<!-- Snap To Edge -->
+		<keybind key="A-Up">
+			<action name="SnapToEdge" direction="Up" />
+		</keybind>
+		
+		<keybind key="A-Down">
+			<action name="SnapToEdge" direction="Down" />
+		</keybind>
+		
+		<keybind key="A-Left">
+			<action name="SnapToEdge" direction="Left" />
+		</keybind>
+		
+		<keybind key="A-Right">
+			<action name="SnapToEdge" direction="Right" />
+		</keybind>
+		
+		<!-- Snap To Region -->
+		<keybind key="W-down">
+			<action name="SnapToRegion" region="center"/>
+		</keybind>
+		
+		<keybind key="W-Insert">
+			<action name="SnapToRegion" region="top-left"/>
+		</keybind>
+		
+		<keybind key="W-Page_Up">
+			<action name="SnapToRegion" region="top-right"/>
+		</keybind>
+		
+		<keybind key="W-Delete">
+			<action name="SnapToRegion" region="bottom-left"/>
+		</keybind>
+		
+		<keybind key="W-Page_Down">
+			<action name="SnapToRegion" region="bottom-right"/>
+		</keybind>
+		
+		<!-- Menus -->
+		<keybind key="W-Space">
+			<action name="ShowMenu" menu="root-menu" atCursor="no"/>
+		</keybind>
+		
+		<keybind key="A-Space">
+			<action name="ShowMenu" menu="client-menu" atCursor="no"/>
+		</keybind>
+		
+		<keybind key="S-Space">
+			<action name="ShowMenu" menu="client-list-combined-menu" atCursor="no"/>
+		</keybind>  
+	
+	</keyboard>
+	  
+	<!-- Mouse Bindings -->
+  
+	<mouse>
+		
+		<default/>
+		
+		<!-- Mouse Snapping -->
+		<context name="Titlebar">
+			
+			<mousebind button="Middle" action="Click">
+				<action name="SnapToRegion" region="center"/>
+			</mousebind>
+		
+		</context>
+		
+		<context name="Left">
+			
+			<mousebind button="Middle" action="Click">
+				<action name="SnapToRegion" region="left"/>
+			</mousebind>
+		
+		</context>
+		
+		<context name="Right">
+			<mousebind button="Middle" action="Click">
+				<action name="SnapToRegion" region="right"/>
+			</mousebind>
+		
+		</context>
+		
+		<context name="Top">
+			
+			<mousebind button="Middle" action="Click">
+				<action name="SnapToRegion" region="top"/>
+			</mousebind>
+		
+		</context>
+		
+		<context name="Bottom">
+			
+			<mousebind button="Middle" action="Click">
+				<action name="SnapToRegion" region="bottom"/>
+			</mousebind>
+		
+		</context>
+		
+		<!-- Root, client, Menu -->
+		<context name="Root">
+			
+			<mousebind button="Left" action="Press">
+				<action name="ShowMenu" menu=""/>
+			</mousebind>
+	
+			<mousebind button="Right" action="Press">
+				<action name="ShowMenu" menu="root-menu"/>
+			</mousebind>
+			
+			<mousebind button="Middle" action="Press">
+				<action name="ShowMenu" menu="client-menu"/>
+			</mousebind>
+		
+		</context>
+			
+		<!-- Magnifier -->
+		<context name="All">
+			
+			<mousebind direction="W-Up" action="Scroll">
+				<action name="ZoomIn"/>
+			</mousebind>
+	  		
+	  		<mousebind direction="W-Down" action="Scroll">
+				<action name="ZoomOut"/>
+			</mousebind>
+		
+		</context>
+	
+	</mouse>
+	
+	<!-- Touch -->
+	<touch deviceName="" mapToOutput="" mouseEmulation="no"/>
+	
+	<!-- Tablet -->
+	<tablet mapToOutput="" rotate="0" mouseEmulation="no">
+		<area top="0.0" left="0.0" width="0.0" height="0.0" />
+		<map button="Tip" to="Left" />
+		<map button="Stylus" to="Right" />
+		<map button="Stylus2" to="Middle" />
+	</tablet>
+	
+	<tabletTool motion="absolute" relativeMotionSensitivity="1.0" />
+	
+	<!-- Libinput -->
+	<libinput>
+		
+		<device category="default">
+			<naturalScroll></naturalScroll>
+			<tap>yes</tap>
+			<scrollFactor>1.0</scrollFactor>
+		</device>
+	
+	</libinput>
+	
+	<!-- Windows Rules -->	
+	<windowRules>
+		
+		<windowRule title="*">
+			<action name="ResizeTo" width="874" height="480"/>
+		</windowRule>
+		
+		<windowRule title="sway-launcher-desktop">
+			<action name="ResizeTo" width="874" height="480"/>
+		</windowRule>
+	
+	</windowRules>
+	
+	<!-- Menu -->
+	<menu>
+		<ignoreButtonReleasePeriod>250</ignoreButtonReleasePeriod>
+		<showIcons>yes</showIcons>
+	</menu>
+	
+	<!-- Magnifier settings -->
+	<magnifier>
+		<width>400</width>
+		<height>400</height>
+		<initScale>2.0</initScale>
+		<increment>0.2</increment>
+		<useFilter>true</useFilter>
+	</magnifier>
+
+</labwc_config>
