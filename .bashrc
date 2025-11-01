@@ -12,6 +12,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 alias dotfiles='/usr/bin/git --git-dir=/home/anglo/.dotfiles/ --work-tree=/home/anglo'
+alias sdotfiles='sudo /usr/bin/git --git-dir=/home/anglo/.dotfiles/ --work-tree=/home/anglo'
 
 PS1='[\u@\h \W]\$ '
 
